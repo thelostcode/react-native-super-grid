@@ -13,6 +13,28 @@ class SuperGrid extends Component {
     this.state = this.getDimensions();
   }
 
+  static propTypes = {
+    renderItem: PropTypes.func.isRequired,
+    items: PropTypes.arrayOf(PropTypes.any).isRequired,
+    itemDimension: PropTypes.number,
+    itemWidth: PropTypes.number, // for backward compatibility
+    fixed: PropTypes.bool,
+    spacing: PropTypes.number,
+    style: ViewPropTypes.style,
+    staticDimension: PropTypes.number,
+    horizontal: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    fixed: false,
+    itemDimension: 120,
+    itemWidth: null,
+    spacing: 10,
+    style: {},
+    staticDimension: undefined,
+    horizontal: false,
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.itemDimension !== this.props.itemDimension) {
       this.setState({
@@ -167,28 +189,5 @@ class SuperGrid extends Component {
     );
   }
 }
-
-/*
-SuperGrid.propTypes = {
-  renderItem: PropTypes.func.isRequired,
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
-  itemDimension: PropTypes.number,
-  itemWidth: PropTypes.number, // for backward compatibility
-  fixed: PropTypes.bool,
-  spacing: PropTypes.number,
-  style: ViewPropTypes.style,
-  staticDimension: PropTypes.number,
-  horizontal: PropTypes.bool,
-};
-
-SuperGrid.defaultProps = {
-  fixed: false,
-  itemDimension: 120,
-  itemWidth: null,
-  spacing: 10,
-  style: {},
-  staticDimension: undefined,
-  horizontal: false,
-};*/
 
 export default SuperGrid;
