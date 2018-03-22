@@ -168,6 +168,7 @@ class SuperGrid extends Component {
   }
 }
 
+/*
 SuperGrid.propTypes = {
   renderItem: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -188,6 +189,6 @@ SuperGrid.defaultProps = {
   style: {},
   staticDimension: undefined,
   horizontal: false,
-};
+};*/
 
 export default SuperGrid;
